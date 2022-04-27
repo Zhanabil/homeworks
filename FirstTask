@@ -1,0 +1,48 @@
+package task.one.arrays;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Arrays.sort;
+
+public class Task_one {
+
+    public static void main(String args[]) {
+
+        int[] arr_one = {1, 2, 3};
+        int[] arr_two = {2, 4, 5, 6};
+
+        List<Integer> arrFirstList = new ArrayList<>();
+
+        for(int i=0; i<arr_one.length; i++) {
+            arrFirstList.add(arr_one[i]);
+        }
+
+        List<Integer> arrSecondList = new ArrayList<>();
+
+        for(int i=0; i<arr_two.length; i++) {
+            arrSecondList.add(arr_two[i]);
+        }
+
+        ArrayClassCompare obj = new ArrayClassCompare();
+
+        System.out.println(obj.compareArrays(arrFirstList, arrSecondList));
+    }
+
+    private static class ArrayClassCompare {
+        // Проверка на сравнение
+        public boolean compareArrays(List<?> arrFirst, List<?> arrSecond) {
+
+            // Проверка на соотвествие индексов и значений массивов
+            if(arrFirst.containsAll(arrSecond)) {
+                for(int i=0; i<arrFirst.size(); i++) {
+                    if(arrFirst.get(i).equals(arrSecond.get(i))) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+    }
+}
